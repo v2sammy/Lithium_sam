@@ -1,0 +1,30 @@
+<?php
+
+namespace app\controllers;
+
+class TestController extends \lithium\action\Controller {
+	
+	public function index() {
+	
+	}
+	
+	public function test2() {
+		$options = array();
+		$path = func_get_args();
+
+		if (!$path || $path === array('home')) {
+			$path = array('home');
+			$options['compiler'] = array('fallback' => true);
+		}
+		if($path === array('test2') {
+			$path = array('page2');
+			$options['compiler'] = array('fallback' => true);
+		}
+
+		$options['template'] = join('/', $path);
+		return $this->render($options);
+	}
+}
+
+
+?>

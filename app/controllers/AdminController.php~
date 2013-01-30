@@ -1,0 +1,55 @@
+<?php
+namespace app\controllers;
+
+session_start();
+
+use app\models\Users;
+
+use lithium\security\Auth;
+use lithium\g11n\Message;
+use lithium\storage\Session;
+
+class AdminController extends \lithium\action\Controller 
+{
+	public function index()
+	{
+	
+	}
+
+	public function manage()
+	{
+		if(isset($_SESSION['role']) && $_SESSION['role'] != 'admin' )
+		{
+			return $this->redirect('User::index');
+		} 
+		else 
+		{
+			$temp = $this->request->data;
+			if($temp) 
+			{
+			   var_dump($temp);
+			   $users = Users::first(array('conditions' => 'user_email'=>$temp['user_email']));
+			 //  $users = Users::first(array('conditions' => array('user_email'=>$temp['user_email'])));
+				if(isset($users) && $users['user_email']==$temp['user_email']) {
+					return "Error: User with email id ".$temp['user_email']." already exists";
+				} else {
+					$random = substr(number_format(time() * rand(),0,'',''),0,10);
+					$temp['uniqueno'] = $random;
+					$adm = Users::create($temp);
+					if($adm->save())
+						return compact('adm');
+					else return "Error: Unable to save user";
+				}
+			}
+		}
+	}
+
+	public function success()
+	{
+		
+				
+	}
+}
+
+
+?>

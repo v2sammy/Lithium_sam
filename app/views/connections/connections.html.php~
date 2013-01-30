@@ -1,0 +1,54 @@
+<div style="padding : 10px 10px; border-radius : 2px; border:1px solid #CFCFCF;">
+<legend> Friends </legend>
+<?php
+echo "<table class='table-striped' style='width : 100%;text-align : left;'>";
+echo "<tr> <th> Name </th> <th> Groups </th> <th> Add to group </th> </tr>";
+foreach($userCursor as $friends)
+	foreach($friends as $friend)
+	{
+		echo "<tr><td>";
+		echo $friend['name'];
+		echo '</td>';
+		echo '<td class="span2" > <div class=groupLabel'.$friend["_id"].' > </div></td>';
+		
+		echo ' <td><div class="btn-group pull-right" style="margin-bottom : 20px !important;">
+  			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id='.$friend['_id'].' class="btnAction">
+   				 Groups
+    				<span class="caret"></span>
+  			</a>
+  			<ul class="dropdown-menu">
+  				<!-- 
+  				<li> <a href="#" id="Family" class="groupItem" data-id='.$friend['_id'].'> Family </a></li>
+    				<li> <a href="#" id="Work" class="groupItem" data-id='.$friend['_id'].'> Work </a> </li>
+    				<li> <a href="#" id="Friends" class="groupItem" data-id='.$friend['_id'].'> Friends </a> </li>
+    				-->
+  				<div class="groups" data-id='.$friend['_id'].'>
+    				
+    				</div>
+    				
+    				<li class="divider"> </li>
+    				<li><form id="frmNewGroup" class="frmNewGroup">
+    				<input type="text" id="txtGroupName" class="txtGroupName" placeholder="Create New Group" style="display : block;" />
+    				</form> </li>
+  			</ul>
+		     </div>';
+	        echo "</td></tr>";
+	}
+echo "</table><br>";
+?>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add New Group</h3>
+  </div>
+  <div class="modal-body">
+    <p>New What Container</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>

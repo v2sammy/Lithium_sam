@@ -1,0 +1,26 @@
+<?php
+namespace app\controllers;
+
+use app\models\Users;
+use app\models\Registrations;
+
+use lithium\security\Auth;
+
+use lithium\g11n\Message;
+
+class ViewController extends \lithium\action\Controller {
+
+	
+	
+	public function index()
+	{
+		$view = Registrations::find('all',array('conditions' => array('email' => $registration['email'])));
+		return compact('view');
+}
+	
+
+
+}
+
+
+?>

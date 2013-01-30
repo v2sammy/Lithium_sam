@@ -1,0 +1,118 @@
+/* style for general components */
+
+a:active,a:hover{
+	text-decoration : none;
+}
+
+
+footer{
+	color : #888888;
+	position : float;
+	width : 100%;	
+	margin-top : 17%; 
+}
+
+
+#searchResults{
+	border : 1px solid;
+	border-color : #CFCFCF;
+	padding : 20px;
+	border-radius : 2px;
+}
+.searchResults{
+	border-bottom : 1px solid;
+	border-color : #CFCFCF;
+	padding-bottom : 20px;
+	padding-top : 20px;
+	border-radius : 2px;
+}
+#getFriends{
+	margin-top : 20px;
+}
+
+#wrapperLogin{
+	border : 1px solid;
+	border-color : black;
+	padding : 10px;
+	border-radius : 24px;
+	margin-left : auto;
+	margin-right : auto;
+	width : 400px;
+}
+
+#wrapperLoginn{
+	border : 1px solid;
+	border-color : black;
+	padding : 10px;
+	border-radius : 24px;
+	margin-left : auto;
+	margin-right : auto;
+	width : 500px;
+}
+
+.wrapper{
+	border : 1px solid;
+	border-color : #CFCFCF;
+	padding : 20px;
+	border-radius : 2px;
+	margin-left : auto;
+	margin-right : auto;
+}
+
+.listDiv{
+	border-bottom : 1px solid;
+	border-color : #EFEFEF;
+	padding-bottom : 20px;
+	padding-top : 20px;
+	border-radius : 2px;
+	display : block;
+}
+
+.pull-center{
+	margin-left : auto;
+	margin-right : auto;
+}
+/* style for search icon in nav bar */
+
+.navbar-search {
+    position: relative;
+}
+  
+.navbar-search .search-query {
+    padding-left: 29px;
+}
+
+.navbar-search .icon-search {
+    position: absolute;
+    top: 7px;
+    left: 11px;
+    background-image: url("http://twitter.github.com/bootstrap/assets/img/glyphicons-halflings-white.png");
+}
+
+.navbar-search .search-query:focus, .navbar-search .search-query.focused {
+    padding-left: 30px;
+}
+
+.search-query:focus + .icon-search {
+    background-image: none;
+    padding-left : 15px;
+}
+
+
+
+/* style for table cells */
+
+td{
+	height : 20px !important;
+}
+
+
+
+
+
+
+/* style for public groups page */
+
+#btnSearchGroup{
+	margin-top : 5px;
+}

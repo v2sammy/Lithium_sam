@@ -1,0 +1,26 @@
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: /resources/tmp/cache/templates/template_views_testapp_index.html_665226_1357828436_343.php:10
+msgid "Laboratory"
+msgstr ""
+
+#: /resources/tmp/cache/templates/template_views_testapp_index.html_665226_1357828436_343.php:11
+msgid "Arun"
+msgstr ""
+
+#: /resources/tmp/cache/templates/template_views_sessions_add.html_665181_1357828202_874.php:14
+msgid "email"
+msgstr ""
+

@@ -1,0 +1,54 @@
+<?php 
+namespace app\controllers;
+
+use app\models\Customers;
+use lithium\security\Auth;
+use lithium\storage\Session;
+use lithium\security\Password;
+use lithium\util\Validator;
+
+
+class CustomersController extends \lithium\action\Controller {
+
+private $rules = array(
+    'password' => array(
+        array('notEmpty', 'message' => 'password is empty'),
+    ),
+    'username' => array(
+        array('notEmpty', 'message' => 'username is empty')
+           )
+);
+	public function add(){
+		$customer = Customers::create($this->request->data);
+		if(($this->request->data) && $customer->save()){
+			return $this->redirect('Customers::login');
+		}
+		return compact('customer');
+	}
+	
+	public function index(){
+		
+	}
+	
+	public function login(){
+		if(Session::read('app')){
+			return $this->redirect('Customers::index');
+		}
+		else{
+			
+				return $this->redirect('Customers::login');
+			
+		}
+	}
+	
+
+	
+	
+	
+	public function logout(){
+		Auth::clear('customerAuth');
+		return $this->redirect('Customers::login');
+	}
+}
+
+?>

@@ -1,0 +1,17 @@
+<div id="groupsWrapper" class="wrapper">
+	<legend> Groups </legend>
+	<?php
+		foreach($groups as $groupArray)
+		{
+			foreach($groupArray as $group)
+			{
+	?>
+			<div class="listDiv">
+				<?php echo $group['group_name']; ?>
+				<?php echo "<button class='btn btn-success' id='".$group['_id']."'> Join </button>"; ?>
+			</div> <!-- end listDiv div -->
+	<?	
+			}
+		}
+	?>
+</div> <!-- end groupsWrapper div -->

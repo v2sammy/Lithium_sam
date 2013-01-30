@@ -1,0 +1,15 @@
+<?php 
+namespace \app\models;
+
+class Testapp extends \lithium\data\Models {
+
+	public function getUsers(){
+		$connection = new Mongo();
+		$db = $connection->selectDB('youdyog');
+		$collection = $db->selectCollection('user_info');
+		$users = $collection->find();
+		return $users;
+	
+	}
+}
+?>

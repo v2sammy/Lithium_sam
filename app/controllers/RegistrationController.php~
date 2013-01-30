@@ -1,0 +1,35 @@
+<?php
+namespace app\controllers;
+session_start();
+
+use app\models\users;
+
+use lithium\security\Auth;
+
+use lithium\g11n\Message;
+use lithium\storage\Session;
+
+class RegistrationController extends \lithium\action\Controller {
+
+	public function index(){
+		
+		$reg = users::create($this->request->data);
+		if(($this->request->data) && $reg->save()) 
+		{	
+			
+			return $this->redirect('Registration::success');	
+
+		}
+
+		return compact('reg');	
+		}
+		
+	
+	public function success()
+	{
+
+	}
+}
+
+
+?>

@@ -1,0 +1,16 @@
+<?php 
+
+namespace app\models;
+
+use lithium\util\Validator;
+
+class Referrals extends \lithium\data\Model 
+{
+}
+		
+}
+	
+		
+
+
+?>

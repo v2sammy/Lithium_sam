@@ -1,0 +1,50 @@
+<?php
+namespace app\controllers;
+session_start();
+use app\models\Users;
+
+use \lithium\security\Auth;
+use \lithium\storage\Session;
+
+class SessionsController extends \lithium\action\Controller {
+	
+	public function add(){	
+			$data = $this->request->data;
+  echo $data['email'];
+			 if ($data['email'] != "" && $data['password'] != "")
+			{ 
+//Auth::check('loginauth', $this->request) && 
+				if(Auth::check('loginauth', $this->request) && $data['email'] == "admin@youdyog.in"){	
+					$_SESSION['loginFailed'] = 0;
+					$_SESSION['loginSuccess'] = 1;
+					$_SESSION['email'] = $data['email'];		
+					
+					return $this->redirect('Referral::index');
+					}
+				else if(Auth::check('loginauth', $this->request)){  
+					$_SESSION['loginFailed'] = 0;
+					$_SESSION['loginSuccess'] = 1;	
+					$_SESSION['email'] = $data['email'];		
+
+					return $this->redirect('Referral::referralhome');
+					}
+			
+				else{
+					$_SESSION['loginFailed'] = 1;
+					
+					}
+				
+			}
+			
+		
+	}
+
+	public function delete() {
+		Auth::clear('loginauth');
+		unset($_SESSION['loginSuccess']);
+		unset($_SESSION['loginFailed']);
+		return $this->redirect('/sessions');
+	}
+
+}
+?>

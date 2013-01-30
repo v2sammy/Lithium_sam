@@ -1,0 +1,26 @@
+<?php
+
+namespace app\controllers;
+
+use lithium\storage\Session;
+
+class AalapaController extends \lithium\action\Controller {
+
+	
+public function index(){
+}
+
+	public function aalapahome(){		
+					
+	}
+	
+	public function home(){
+		if($_SESSION['loginSuccess'] != 1){
+			return $this->redirect('Sessions::add');
+		}
+	}
+	
+	
+}
+
+?>

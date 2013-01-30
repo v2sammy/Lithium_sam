@@ -1,0 +1,35 @@
+<?php
+namespace app\controllers;
+
+use app\models\Users;
+use app\models\Registrations;
+
+use lithium\security\Auth;
+
+use lithium\g11n\Message;
+
+class ConfigController extends \lithium\action\Controller {
+
+	
+	
+	public function index()
+	{
+		$con = Registrations::create($this->request->data);
+		if(($this->request->data) && $con->save()) 
+		{	
+			
+			return $this->redirect('Registration::success');	
+
+		}
+
+		return compact('reg');	
+		}
+		
+}
+	
+
+
+}
+
+
+?>

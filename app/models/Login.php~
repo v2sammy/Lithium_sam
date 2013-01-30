@@ -1,0 +1,22 @@
+<?php 
+
+namespace app\models;
+
+class Login extends \lithium\data\Model {
+
+	public function validateLogin($email, $password){
+		$connection = new \Mongo();
+		$db = $connection->selectDB('youdyog');
+		$collection = $db->selectCollection('user_info');
+		$query = array('email' => $email,'password' => $password);
+		$ufound = $collection->find($query);
+		
+		if($ufound['email']){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
+}
+?>

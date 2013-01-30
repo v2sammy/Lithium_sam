@@ -1,0 +1,52 @@
+<?php
+
+namespace app\controllers;
+
+use lithium\storage\Session;
+
+use app\models\Users;
+
+
+class ReferralController extends \lithium\action\Controller {
+
+	
+
+	public function index()
+	{
+	
+		$ref = Users::create($this->request->data);
+		if(($this->request->data) && $ref->save()) 
+		return $this->redirect('Referral::success');	
+		}
+		
+			
+	
+			
+		
+		
+	
+		public function success()
+		{
+			/*$refu = Registrations::find('all');
+			return compact('refu');*/
+
+		}
+	
+
+	public function referralhome()
+	{		
+				
+	}
+
+	
+	public function home(){
+		if($_SESSION['loginSuccess'] != 1){
+			return $this->redirect('Sessions::add');
+		}
+	}
+	
+	
+	
+}
+
+?>

@@ -1,0 +1,24 @@
+<h3>Welcome To Administration Page</h3>
+
+<?= $this->form->create(); ?>
+
+<?= $this->form->field('referal_email',array('id' => 'txtrefemail')); ?>
+<div id="refemailalertBox" class="alert alert-danger" style="display: none;"></div>
+
+<?= $this->form->field('useremail',array('id' => 'txtuseremail')); ?>
+<div id="useremailalertBox" class="alert alert-danger" style="display: none;"></div>
+
+<?= $this->form->button('Add User',array('id'=>'submit_user','onclick' => 'validateAddPage()')); ?>
+
+
+
+
+<div id="alertBox" class="alert alert-danger" style="display: none;"></div>
+<?= $this->form->end(); ?>
+
+
+ 
+
+
+
+

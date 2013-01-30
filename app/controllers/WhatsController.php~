@@ -1,0 +1,44 @@
+<?php
+namespace app\controllers;
+
+use app\models\Whats;
+
+class WhatsController extends \lithium\action\Controller {
+	public function add(){
+		$what = Whats::create($this->request->data,conditions(array('name' => 'Tabla')));
+		if(($this->request->data) && $what->save()){
+			return $this->redirect('Whats::index');
+		}
+		return compact('what');
+	}
+	
+	public function success(){	
+		$whats = Whats::find('all');
+		return compact('whats');
+	}
+	
+	public function index(){	
+		$whats = Whats::find('all');
+		return compact('whats');
+	}
+	
+	public function getWhich(){
+		$req = $_POST['name'];
+		$whatName = $req['name'];
+		//$whatObj = Whats::find('all',array('conditions' => array('name' => $whatName),'limit' => 1));
+		//return compact('whatObj');
+		echo $whatName;
+	}
+	
+	public function addwhich(){
+		$datareq = $this->request->data;
+		$whatName = $datareq['whatname'];
+		$what = Whats::create($this->request->data,array('conditions' => array('name' => $WhatName)));
+		if(($this->request->data) && $what->save()){
+			return $this->redirect('Whats::index');
+		}
+		$whats = Whats::find('all');
+		return compact('whats');
+	}
+}
+?>

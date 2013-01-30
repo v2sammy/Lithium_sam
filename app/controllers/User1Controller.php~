@@ -1,0 +1,27 @@
+<?php
+namespace app\controllers;
+
+use app\models\Users;
+use app\models\Registrations;
+
+use lithium\security\Auth;
+
+use lithium\g11n\Message;
+
+class User1Controller extends \lithium\action\Controller 
+{
+
+	public function index()
+	{
+		$user1s = Registrations::find('all');
+		$_SESSION['id']	= $users1;
+		
+		return compact('user1s');
+	}
+	
+
+
+}
+
+
+?>

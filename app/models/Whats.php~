@@ -1,0 +1,14 @@
+<?php
+namespace app\models;
+
+use lithium\util\Validator;
+
+class Whats extends \lithium\data\Model {
+	public $validates = array(
+		'name' => array(
+			array('notEmpty', 'message'=> 'Please fill in Firstname'),
+			array('alphaNumeric', 'message'=> 'Please use only alphabets')
+		)
+		);
+}
+?>

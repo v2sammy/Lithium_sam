@@ -1,0 +1,33 @@
+<?= $this->form->create();?>
+<div class="wrapper" style="height:150px" id="interestsdetails">
+<legend>Survey</legend>
+<div class="pull-left" style="margin-left: 30px">
+
+<?= $this->form->field('How', array('type' => 'select', 'list' => array('Learn'=>'Learn','Teach' => 'Teach','Appreciate' => 'Appreciate','Critic' => 'Critic','Practice' => 'Practice','Engage' => 'Engage','Marketting' => 'Marketting'))); ?>
+</div><div class = "pull-left" style="margin-left:30px">
+<?= $this->form->field('What', array('type' => 'select', 'list' => array('Sports' => 'Sports','Education' => 'Education','Art' => 'Art','Travell' => 'Travell','Cook' => 'Cook','Volunteer' => 'Volunteer'))); ?>
+</div>
+<div class = "pull-left" style="margin-left:30px">
+<?= $this->form->field('Where', array('type' => 'select', 'list' => array('School' => 'School','Office' => 'Office','Public Functions' => 'Public Functions','Charity' => 'Charity'))); ?>
+</div>
+<div class="pull-left" style="margin-left: 30px">
+</br>
+<?= $this->form->button('Add'); ?>
+</div>
+</div> 
+<?= $this->form->end(); ?>
+
+<?php echo "<TABLE width=650 align=center cellpadding=4 cellspacing=0>"; 
+						
+echo "<tr>";
+echo "<td width=35%>How</td>";
+echo "<td width=35%>What</td>";
+echo "<td width=35%>Where</td>";
+echo "</tr>"; 				
+
+echo "<tr>";
+echo "<td>" . $detail['How'] . "</td>";
+echo "<td>" . $detail['What']. "</td>";
+echo "<td>" . $detail['Where'. "</td>";
+echo "</tr>";
+?>

@@ -1,0 +1,46 @@
+<?php
+
+namespace app\controllers;
+
+use lithium\storage\Session;
+
+use app\models\Registrations;
+use app\models\Users;
+
+
+class YoudyogController extends \lithium\action\Controller {
+
+	
+	public function index()
+	{
+	}
+
+	public function youdyoghome()
+	{		
+		/*$data = $this->request->data;
+			if ($data['email']!="")
+			{ 
+				$_SESSION['email'] = $data['email'];							
+			$uid = Registrations::find('all',array('conditions' => array('email' => $_SESSION['email'])));
+foreach ($uid as $usertab) 
+		{
+			$_SESSION['uid']= $usertab['user_name'];
+	     	}
+				return compact('uid');
+			}
+		
+		*/			
+	}
+
+	
+	public function home(){
+		if($_SESSION['loginSuccess'] != 1){
+			return $this->redirect('Sessions::add');
+		}
+	}
+	
+	
+	
+}
+
+?>

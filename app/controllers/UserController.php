@@ -41,37 +41,26 @@ class UserController extends \lithium\action\Controller {
 		
 	}
 	public function updateInterests(){
-	$how = $_POST['how'];
-	$what = $_POST['what'];
-	$which = $_POST['which'];
-	$where = $_POST['where'];
-	Users::update(array('$push' => array('interest_details' => $this->request->data)),array('_id' => new \MongoId($_SESSION['loggedInUserId'])));
-			//Users::updateUser(array('$push' => array('interest_details' => $this->request->data)),array('email'=>'ujwalrao@gmail.com'));
-			$interests = Users::getUsers('all', array('conditions' => array('_id' => new \MongoId($_SESSION['loggedInUserId'])),'fields' => array('interest_details')));
-			//$interests = Users::getUsers('all', array('conditions' => array('email' => 'ujwalrao@gmail.com'),'fields' => array('interest_details')));
-		return compact('interests');
+	
 	}
 	
 	public function profile()
 	{
-		if($_SESSION['loginSuccess'] != '1')
-		return $this->redirect('Login::login');
-		else
-		{
-			$interestsArray = array();
-			$Hows = How::getHows("all",array());
-			$whats = What::getWhats("all",array());
-			$Whichs = Which::getWhichs("all",array());
-			$Wheres = Where::getWheres("all",array());
-			var_dump($hows);
-			array_push($interestsArray,$hows);
-			array_push($interestsArray,$whats);
-			array_push($interestsArray,$whichs);
-			array_push($interestsArray,$wheres);
-			return compact('interestsArray');
-			
-		}
+		
 	}
+	public function partner()
+	{
+     	
+	}
+	public function provider()
+	{
+     	
+	}
+	public function enduser()
+	{
+     	
+	}
+	
 	public function success()
 	{
      	

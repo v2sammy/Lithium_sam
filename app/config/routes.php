@@ -80,7 +80,11 @@ Router::connect('/register/{:args}', 'User::register');
 Router::connect('/success/{:args}', 'User::success');
 Router::connect('/welcome', 'User::welcome');
 Router::connect('/participate', 'User::participate');
-Router::connect('/profile','User::profile');
+
+// replace with profile later
+Router::connect('/profile','User::partner');
+Router::connect('/provider','User::provider');
+Router::connect('/enduser','User::enduser');
 
 // routes for forgotten password
 Router::connect('/getLink','User::getLink');

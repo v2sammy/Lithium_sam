@@ -11,27 +11,27 @@ if($isRegistered == '1')
 else  {
 ?>
 
-<?= $this->form->create() ?>
+<?php echo $this->form->create(); ?>
 <center>
 <label>First Name
-<?= $this->form->text('first_name',array('class'=>'input-large','id' => 'txtfname','placeholder'=>'', 'autocomplete' => 'off')); ?>
+<?php echo $this->form->text('first_name',array('class'=>'input-large','id' => 'txtfname','placeholder'=>'', 'autocomplete' => 'off')); ?>
 <div id="fnamealertBox" class="alert alert-danger" style="display: none;"></div>
 </label>
 <label>Last Name
-<?= $this->form->text('last_name',array('class'=>'input-large','id' => 'txtlname' ,'placeholder'=>'' , 'autocomplete' => 'off')); ?>
+<?php echo $this->form->text('last_name',array('class'=>'input-large','id' => 'txtlname' ,'placeholder'=>'' , 'autocomplete' => 'off')); ?>
 <div id="lnamealertBox" class="alert alert-danger" style="display: none;"></div>
 </label>
 
 <div style="margin-left:35px">
 <label>Email
-<?= $this->form->text('email',array('class'=>'input-large','type' =>'email' ,'id' => 'txtemail' , 'autocomplete' => 'off','value'=>$_SESSION['tempuserEmail'],'readonly'=>'readonly')); ?>
+<?php echo $this->form->text('email',array('class'=>'input-large','type' =>'email' ,'id' => 'txtemail' , 'autocomplete' => 'off','value'=>$_SESSION['tempuserEmail'],'readonly'=>'readonly')); ?>
 <div id="emailalertBox" class="alert alert-danger" style="display: none;"></div>
 </label>
 </div>
 
 <div style="margin-left:5px">
 <label>Password
-<?= $this->form->password('password',array('class'=>'input-large','type' => 'password','id' => 'password' ,'name'=>'password', 'onCopy' => 'return false', 'onPaste' => 'return false',
+<?php echo $this->form->password('password',array('class'=>'input-large','type' => 'password','id' => 'password' ,'name'=>'password', 'onCopy' => 'return false', 'onPaste' => 'return false',
 'onblur'=>'passwordStrength(this.value,document.getElementById("strendth"),document.getElementById("passError"))')); ?>
 </label>
 <span id="passError"></span><span id="strendth"></span>
@@ -47,19 +47,19 @@ else  {
 
 <div style="margin-left:-5px">
 <label>Contact No: 
-<?= $this->form->text('contact no',array('placeholder'=>'Optional' ,'class'=>'input-large','id' => 'txtcontactno', 'autocomplete' => 'off')); ?>
+<?php echo $this->form->text('contact no',array('placeholder'=>'Optional' ,'class'=>'input-large','id' => 'txtcontactno', 'autocomplete' => 'off')); ?>
 <!-- <div id="contactnoalertBox" class="alert alert-danger" style="display: none;"></div>  -->
 </label>
 </div>
 
 <div style="margin-left:15px">
 <label>Location
-<?= $this->form->text('location',array('placeholder'=>'Optional','class'=>'input-large','id' => 'txtlocation', 'autocomplete' => 'off')); ?>
+<?php echo $this->form->text('location',array('placeholder'=>'Optional','class'=>'input-large','id' => 'txtlocation', 'autocomplete' => 'off')); ?>
 <div id="locationalertBox" class="alert alert-danger" style="display: none;"></div>
 </label>
 </div>
 
-<p><?= $this->form->button('Register',array('class' => 'btn btn-primary','onclick' => 'if(validateRegisterPage())
+<p><?php echo $this->form->button('Register',array('class' => 'btn btn-primary','onclick' => 'if(validateRegisterPage())
 {
 	return true;
 }
@@ -71,7 +71,7 @@ else{
 <div id="alertBox" class="alert alert-danger" style="display: none;"></div>
 
 
-<?= $this->form->end(); ?>
+<?php echo $this->form->end(); ?>
 <?php } ?>
 
 </div>

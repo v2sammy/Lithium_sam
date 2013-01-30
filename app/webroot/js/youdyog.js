@@ -239,19 +239,6 @@ function validateAlphanumeric(sPass) {
     }
 }
 
-// Contact no should contain numbers
-
-function validateNumber(sNumber) {
-    var filter = /^[0-9]+$/;
-    if (filter.test(sNumber)) {
-
-        return true;
-    }
-    else {
-
-        return false;
-    }
-}
 
 // To validate Password
 
@@ -325,7 +312,7 @@ var result = false;
 	else{
 		$("#emailalertBox").css("display","block").hide().fadeIn(200);
 		$("#emailalertBox").html("Please enter valid email id");
-		
+		return false;
 	}
 	
 	if(validateAlphabets($("#txtfname").val())){
@@ -338,7 +325,7 @@ var result = false;
 	else{
 		$("#fnamealertBox").css("display","block").hide().fadeIn(200);
 		$("#fnamealertBox").html("First Name cannot be empty");
-		
+		return false;
 	}
          
          if(validateAlphabets($("#txtlname").val())){
@@ -351,7 +338,7 @@ var result = false;
 	else{
 		$("#lnamealertBox").css("display","block").hide().fadeIn(200);
 		$("#lnamealertBox").html("Last Name cannot be empty");
-		
+		return false;
 	}
          
 	if(validateAlphanumeric($("#password").val())){
@@ -362,8 +349,8 @@ var result = false;
 
 	else{
 		$("#passwordalertBox").css("display","block").hide().fadeIn(200);
-		$("#passwordalertBox").html("Password Should Contain AlphaNumeric Values");
-		
+		$("#passwordalertBox").html("Password cannot be empty!");
+		return false;
 
 	}
 	if(validateAlphabets($("#txtusername").val())){
@@ -375,29 +362,11 @@ var result = false;
 	else{
 		$("#usernamealertBox").css("display","block").hide().fadeIn(200);
 		$("#usernamealertBox").html("Only Alphabets allowed");
-		
-	}
-
-	if(validateNumber($("#txtcontactno").val())){
-		$("#contactnoalertBox").css("display","block").hide().fadeIn(200);
-	        $("#contactnoalertBox").css("display","none");
-	result = true;	
-	
-	}
-
-	else{
-		$("#contactnoalertBox").css("display","block").hide().fadeIn(200);
-		$("#contactnoalertBox").html("Not a valid phone number / Cannot be left blank.");
 		return false;
-
 	}
-
 	return result;
 	
 }
-
-//To validate User Name length .... (minimum requirment)
-
 
 
 // password Strength ..... 
@@ -570,3 +539,13 @@ $(document).ready(function() {
 		return false;
 	});
 });
+
+
+$(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      minDate: new Date() 
+    });
+  });
+

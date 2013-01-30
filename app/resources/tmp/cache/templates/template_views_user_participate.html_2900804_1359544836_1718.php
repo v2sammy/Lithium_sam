@@ -1,5 +1,5 @@
 <div class="wrapper" id="wrapperLogin" style="align:center; margin-top:100px">
-<?= $this->form->create(null,array('action'=>'/')); ?>
+<?php echo $this->form->create(null,array('action'=>'/')); ?>
 <div id="container">
 
 <!-- Participate Options -->
@@ -9,10 +9,10 @@
 </center>
 <div style="margin-left:40px">
 <label>
-<?= $this->form->radio('part',array('id'=>'par_yes','value'=>'Yes','onclick'=>'showdiv("container3"); hidediv("container2")')); ?>
+<?php echo $this->form->radio('part',array('id'=>'par_yes','value'=>'Yes','onclick'=>'showdiv("container3"); hidediv("container2")')); ?>
 Yes</label>
 <label>
-<?= $this->form->radio('part',array('id'=>'par_no','value'=>'No','onclick'=>'showdiv("container2"); hidediv("container3")')); ?>
+<?php echo $this->form->radio('part',array('id'=>'par_no','value'=>'No','onclick'=>'showdiv("container2"); hidediv("container3")')); ?>
 No</label>
 </div></div>
 
@@ -31,10 +31,10 @@ No</label>
 <legend></br>Select your Role</legend>
 <div style="margin-left:40px">
 <label>
-<?= $this->form->radio('participate',array('id'=>'par_yes','value'=>'Yes','onclick'=>'showdiv("button");')); ?>
+<?php echo $this->form->radio('participate',array('id'=>'par_yes','value'=>'Yes','onclick'=>'showdiv("button");')); ?>
  Partner</label>
 <label>
-<?= $this->form->radio('participate',array('id'=>'par_no','value'=>'No','onclick'=>'showdiv("button");')); ?>
+<?php echo $this->form->radio('participate',array('id'=>'par_no','value'=>'No','onclick'=>'showdiv("button");')); ?>
  Provider</label>
 <div id="button" style="display:none" >
 <center>
@@ -44,5 +44,5 @@ No</label>
 </div>
 </div>
 
-<?= $this->form->end(); ?>
+<?php echo $this->form->end(); ?>
 </div>

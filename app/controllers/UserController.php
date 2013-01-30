@@ -44,6 +44,16 @@ class UserController extends \lithium\action\Controller {
 	
 	}
 	
+	public function addPartner()
+	{
+		$what = $_POST['what'];
+		$date = $_POST['date'];
+		$where = $_POST['where'];
+		$how = $_POST['how'];
+		$amount = $_POST['amount'];
+		
+		$result = Users::updateUser(array('$push'=>array('interests'=>array('what'=>$what, 'date'=>$date, 'where' => $where,'how'=>$how, 'amount'=>$amount))),array('email'=>$_SESSION['email'])); 
+	}
 	public function profile()
 	{
 		

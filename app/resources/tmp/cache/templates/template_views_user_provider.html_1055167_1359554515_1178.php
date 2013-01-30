@@ -1,5 +1,5 @@
 <div class="wrapper" id="wrapperLogin" style="align:center; margin-top:50px">
-<?= $this->form->create();?>
+<?php echo $this->form->create(); ?>
 <legend><div style="color : #58ACFA !important;">Survey</div></legend>
 <center>
 
@@ -47,8 +47,8 @@
 </label>
 </div>
 </br>
-<?= $this->form->button('Submit',array('class' => 'btn btn-primary')) ?>
-<?= $this->form->end(); ?>
+<?php echo $this->form->button('Submit',array('class' => 'btn btn-primary')); ?>
+<?php echo $this->form->end(); ?>
 
 </center>
 </div>

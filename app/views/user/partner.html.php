@@ -3,7 +3,7 @@
 <legend><div style="color : #58ACFA !important;">Survey</div></legend>
 <center>
 <label>What
-<select> 
+<select id="select_what"> 
 <option value = "1">Westran</option>
 <option value = "2">Indian</option>
 <option value = "3">Classical</option>
@@ -18,7 +18,7 @@
 </div>
 
 <label>Where
-<select> 
+<select id="select_where"> 
 <option value = "1">Auditorium</option>
 <option value = "2">House</option>
 <option value = "3">School</option>
@@ -28,7 +28,7 @@
 
 <div style="margin-left:10px">
 <label>How
-<select> 
+<select id="select_how"> 
 <option value = "1">Appreciate</option>
 <option value = "2">Learn</option>
 <option value = "3">Teaching</option>
@@ -41,12 +41,12 @@
 <div style="color:blue; font-size:17px; margin-top:-15px">How much would you like to invest as a Partner!</div>
 <div style="margin-left:-45px">
 <label>Rs (₹)
-<input id=" " type="text">
+<input id="txtcontactno" type="text">
 </label>
 </div>
 </legend>
 </br>
-<?= $this->form->button('Submit',array('class' => 'btn btn-primary')) ?>
+<?= $this->form->button('Submit',array('class' => 'btn btn-primary','id'=>'partner_submit')) ?>
 <?= $this->form->end(); ?>
 
 </center>

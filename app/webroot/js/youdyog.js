@@ -439,7 +439,7 @@ var RecaptchaOptions = {
 $(document).ready(function() {
     $("#txtcontactno").keydown(function(event) {
         // Allow: backspace, delete, tab, escape, and enter
-        if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 || 
+        if ( event.keyCode == 190 || event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 || 
              // Allow: home, end, left, right
             (event.keyCode >= 35 && event.keyCode <= 39)) {
                  // let it happen, don't do anything
@@ -511,6 +511,18 @@ $(document).ready(function() {
 		});
 	});
 	
+	$('#partner_submit').click(function(){
+		var what = $('#select_what').find(":selected").text();
+		var date = $('#datepicker').val();
+		var where = $('#select_where').find(":selected").text();
+		var how = $('#select_how').find(":selected").text();
+		var amount = $('#txtcontactno').val();
+		// new variable : value 
+		//alert(what);
+		$.post('/addPartner',{what:what, date:date, where:where, how:how, amount: amount});
+		return false;
+	});
+	
 	$('#btnResetPassword').click(function(){
 		var newPassword = $('#txtNewPassword').val();
 		var confirmPassword = $('#txtConfirmPassword').val();
@@ -548,4 +560,6 @@ $(function() {
       minDate: new Date() 
     });
   });
+
+// for adding values in database ... 
 

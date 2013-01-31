@@ -85,6 +85,7 @@ Router::connect('/participate', 'User::participate');
 Router::connect('/profile','User::partner');
 Router::connect('/provider','User::provider');
 Router::connect('/enduser','User::enduser');
+Router::connect('/getwherewhich','User::getWhereWhich');
 
 Router::connect('/addPartner','User::addPartner');
 
@@ -93,6 +94,22 @@ Router::connect('/getLink','User::getLink');
 Router::connect('/forgot', 'User::forgot');
 Router::connect('/forgotpassword/{:args}','User::forgotpassword');
 Router::connect('/updatePassword', 'User::updatePassword');
+
+
+// routes for admin control for interests management
+Router::connect('/admin/managecategories/{:args}','Admin::addInterests');
+Router::connect('/admin/getHows','Admin::getHows');
+Router::connect('/admin/getWheres','Admin::getWheres');
+Router::connect('/admin/getWhichs','Admin::getWhichs');
+Router::connect('/admin/deleteHow','Admin::deleteHow');
+Router::connect('/admin/deleteWhere','Admin::deleteWhere');
+Router::connect('/admin/deleteWhich','Admin::deleteWhich');
+Router::connect('/admin/createHow','Admin::createHow');
+Router::connect('/admin/createWhere','Admin::createWhere');
+Router::connect('/admin/editHow','Admin::editHow');
+Router::connect('/admin/editWhere','Admin::editWhere');
+
+
 
 /**
  * Connect the rest of `PagesController`'s URLs. This will route URLs like `/pages/about` to
@@ -107,8 +124,8 @@ Router::connect('/pages/{:args}', 'Pages::view');
  * [http://path/to/app/test](/test) to run tests.
  */
 if (!Environment::is('production')) {
-	Router::connect('/test/{:args}', array('controller' => 'lithium\test\Controller'));
 	Router::connect('/test', array('controller' => 'lithium\test\Controller'));
+	Router::connect('/test/{:args}', array('controller' => 'lithium\test\Controller'));
 }
 
 /**

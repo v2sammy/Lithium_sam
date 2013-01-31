@@ -3,10 +3,8 @@ namespace app\controllers;
 session_start();
 
 use app\models\Users;
-use app\models\How;
-use app\models\What;
-use app\models\Which;
-use app\models\Where;
+use app\models\Whats;
+use app\models\Hows;
 
 
 use lithium\security\Auth;
@@ -60,8 +58,45 @@ class UserController extends \lithium\action\Controller {
 	}
 	public function partner()
 	{
-     	
+		if(!isset($_SESSION['what_list'])) {
+			// retrieve what list
+			$whats = Whats::find('all',array('conditions'=>array('status'=>'1'),'fields'=>array('_id','name')));
+			$_SESSION['what_list'] = $whats;
+		} else $whats = $_SESSION['what_list'];
+		
+		if(!isset($_SESSION['how_list'])) {
+			// retrieve what list
+			$hows = Hows::find('all',array('conditions'=>array('status'=>'1')));
+			$_SESSION['how_list'] = $hows;
+		} 
+		else $hows = $_SESSION['how_list'];
+		return compact('whats','hows');
 	}
+	
+	public function getWhereWhich() {
+		$arrVal = array();
+		$whichsArray = array();
+		$wheresArray = array();
+		if(isset($_POST['id'])) {
+			$whats = Whats::find('all',array('conditions'=>array('status'=>'1','_id'=>new \MongoId($_POST['id'])), 'fields'=>array('wheres','whichs')));
+			foreach($whats as $what) {
+				foreach($what['wheres'] as $where) {
+					if($where['status']!="0") {
+						array_push($wheresArray,array('id'=>$where['_id'],'name'=>$where['name']));
+					}
+				}
+				foreach($what['whichs'] as $which) {
+					if($which['status']!="0") {
+						array_push($whichsArray,array('id'=>$which['_id'],'name'=>$which['name']));
+					}
+				}
+			}
+		}
+		$arrVal['whichs'] = $whichsArray;
+		$arrVal['wheres'] = $wheresArray;
+		return json_encode($arrVal);
+	}
+	
 	public function provider()
 	{
      	

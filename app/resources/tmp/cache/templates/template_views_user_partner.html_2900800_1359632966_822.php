@@ -1,10 +1,10 @@
-	<?= $this->form->create();?>
+	<?php echo $this->form->create(); ?>
 	<div id="div_partner" style="width:800;height:300">
 	How&nbsp;<select id="select_how">
 		<?php foreach($hows as $how) {
 			?>
-				<option value="<?=$how['_id']?>">
-				<?=$how['name']?>
+				<option value="<?php echo $h($how['_id']); ?>">
+				<?php echo $h($how['name']); ?>
 				</option>
 				<?php } ?>
 		</select>
@@ -12,8 +12,8 @@
 	What&nbsp;<select id="select_what">
 	<?php foreach($whats as $what) {
 		?>
-			<option value="<?=$what['_id']?>">
-			<?=$what['name']?>
+			<option value="<?php echo $h($what['_id']); ?>">
+			<?php echo $h($what['name']); ?>
 			</option>
 			<?php } ?>
 	</select> 
@@ -23,6 +23,6 @@
 	<div>How much would you like to invest as a Partner!</div>
 		&nbsp;<input id="txtcontactno" type="text"/>&nbsp;(Rs)
 		<br/>
-	<?= $this->form->button('Submit',array('class'=>'btn btn-primary','id'=>'partner_submit')) ?>
+	<?php echo $this->form->button('Submit',array('class'=>'btn btn-primary','id'=>'partner_submit')); ?>
 	</div>
-	<?= $this->form->end(); ?>
+	<?php echo $this->form->end(); ?>

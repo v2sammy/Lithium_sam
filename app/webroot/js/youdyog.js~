@@ -5,16 +5,22 @@ $(document).ready(function(){
 		$('#alertDiv').css("display", "none");	
 		
 		
-		$('#div_partner').ready(function() {
-			var what_id = $('#select_what').find(":selected").val();
-			loadWhereWhichData(what_id);
-		});
 		
-		$('#select_what').change(function() {
-			var what_id = $('#select_what').find(":selected").val();
-			//alert(what_id);
-			loadWhereWhichData(what_id);
-		});
+		// set nav-bar item active according to the current url
+		var pathname = window.location.pathname;
+		
+		if(pathname == '/connect'){
+			$('#homeNav').attr('class','active');
+		}
+		else if(pathname == '/connect/connections'){
+			$('#friendsNav').attr('class','active');
+		}
+		else if(pathname == '/connect/about'){
+			$('#aboutNav').attr('class','active');
+		}
+		else{
+		
+		}
 		
 		// connect to a user
 		$('#content').on('click','.connect',function(){		
@@ -37,8 +43,7 @@ $(document).ready(function(){
 			$.post('/getPrivateGroups',{},function(data){
 				var newdata = jQuery.parseJSON(data);
 				console.log(newdata);
-				var len = newdata.length;
-				for(var i=0;i<len;i++){
+				for(var i=0;i<newdata.length;i++){
 					$('.groups').append("<li> <a href='#' id='"+newdata[i]+"' class='groupItem'>"+newdata[i]+"</a> </li>");
 				}
 			});	
@@ -183,27 +188,6 @@ $(document).ready(function(){
 				
 });
 
-function loadWhereWhichData(what_id) {
-	$.post('/user/getwherewhich',{id:what_id}, function(data) {
-		var newdata = jQuery.parseJSON(data);
-		var whichs = newdata['whichs'];
-		var wheres = newdata['wheres'];
-		if(whichs!=null) {
-			var len = whichs.length;
-			$('#select_which').empty();
-			for(i = 0; i < len; i++) {
-				$('#select_which').append('<option value = "'+whichs[i]['id']['$id']+'">'+whichs[i]['name']+'</option>');
-			}
-		}
-		if(wheres!=null) {
-			len = wheres.length;
-			$('#select_where').empty();
-			for(i = 0; i < len; i++) {
-				$('#select_where').append('<option value = "'+wheres[i]['id']['$id']+'">'+wheres[i]['name']+'</option>');
-			}
-		}
-	});
-}
 
 /* integration_25-01-13 | login, register | Sumanth, Pavan */
 
@@ -499,7 +483,6 @@ $(document).ready(function() {
 		});
 	});
 	
-	// add partner
 	$('#partner_submit').click(function(){
 		var what = $('#select_what').find(":selected").text();
 		var date = $('#datepicker').val();
@@ -511,7 +494,6 @@ $(document).ready(function() {
 		$.post('/addPartner',{what:what, date:date, where:where, how:how, amount: amount});
 		return false;
 	});
-	
 	
 	
 	
@@ -970,7 +952,7 @@ $(document).ready(function() {
 		}
 		return false;
 	});
-	
+
 });
 
 
@@ -984,17 +966,5 @@ $(function() {
     });
   });
 
-/* for Participate pages*/
-
-
-function showdiv(id)
-{
-      document.getElementById(id).style.display = "block";
-      
-}
-function hidediv(id)
-{
-	document.getElementById(id).style.display ="none";
-} 
 
 

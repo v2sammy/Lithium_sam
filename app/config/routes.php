@@ -86,7 +86,7 @@ Router::connect('/profile','User::partner');
 Router::connect('/provider','User::provider');
 Router::connect('/enduser','User::enduser');
 Router::connect('/getwherewhich','User::getWhereWhich');
-
+Router::connect('/getInterests','User::getInterests');
 Router::connect('/addPartner','User::addPartner');
 
 // routes for forgotten password

@@ -56,6 +56,36 @@ class UserController extends \lithium\action\Controller {
 	{
 		
 	}
+	public function getInterests(){
+		$users = Users::getUsers('all',array('conditions'=>array('_id'=>new \MongoId($_SESSION['loggedInUserId'])),'fields'=>array('interests')));
+		$whatsArray = array();
+		$wheresArray = array();
+		$howsArray = array();
+		foreach ($users as $user)
+		{
+			foreach ($user['interests'] as $interest)
+			{
+				$whats = Whats::find('all',array('conditions'=>array('_id'=>new \MongoId($interest['what']))));
+				array_push($whatsArray,$whats[0]['name']);
+				$wheres = Whats::find('all',array('conditions'=>array('wheres'=>array('$elemMatch'=>array('_id'=>new \MongoId($interest['where'])))),'fields'=>array('wheres')));
+				foreach($wheres as $where)
+				{
+					foreach($where['wheres'] as $wher)
+					{
+						if($wher['_id'] == $interest['where'])
+							array_push($wheresArray,$wher['name']);
+					}
+				}
+				$hows = Hows::find('all',array('conditions'=>array('_id'=>new \MongoId($interest['how']))));
+				array_push($howsArray,$hows[0]['name']);
+			}
+		}
+		$interestsArray = array();
+		array_push($interestsArray, $whatsArray);
+		array_push($interestsArray, $wheresArray);
+		array_push($interestsArray, $howsArray);
+		return json_encode($interestsArray);
+	}
 	public function partner()
 	{
 		if(!isset($_SESSION['what_list'])) {

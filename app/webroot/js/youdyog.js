@@ -501,10 +501,10 @@ $(document).ready(function() {
 	
 	// add partner
 	$('#partner_submit').click(function(){
-		var what = $('#select_what').find(":selected").text();
+		var what = $('#select_what').find(":selected").val();
 		var date = $('#datepicker').val();
-		var where = $('#select_where').find(":selected").text();
-		var how = $('#select_how').find(":selected").text();
+		var where = $('#select_where').find(":selected").val();
+		var how = $('#select_how').find(":selected").val();
 		var amount = $('#txtcontactno').val();
 		// new variable : value 
 		//alert(what);
@@ -512,7 +512,26 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	// for onload of interestsDiv
 	
+	$('#interestsWrapper').ready(function(){
+		$.get('/getInterests',function(data){
+			var newdata = jQuery.parseJSON(data);
+			console.log(newdata);
+			$('#interestsWrapper').append('');
+			var whats = newdata[0];
+			var wheres = newdata[1];
+			var hows = newdata[2];
+			var len = newdata.length;
+			for(var i=0;i<len;i++){
+				$('#interestsWrapper').append('<tr><td> '+whats[i]+' </td>');
+				$('#interestsWrapper').append('<td> '+wheres[i]+' </td>');
+				$('#interestsWrapper').append('<td> '+hows[i]+' </td></tr>');
+			}
+			
+			$('#interestsWrapper').append('</table>');
+		});
+	});
 	
 	
 /* reset the forgotten password */
